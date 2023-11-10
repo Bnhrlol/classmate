@@ -1,0 +1,7 @@
+<h1>Classmate Delete</h1>
+<form method="post">
+    {% csrf_token %}
+    <p>Are you sure you want to delete "{{ object }}"?</p>
+    <input type="submit" value="Yes, delete">
+    <a href="{% url 'classmate_list' %}">Cancel</a>
+</form>

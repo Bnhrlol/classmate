@@ -1,0 +1,29 @@
+<h1>Classmates</h1>
+
+<table border="1">
+<thead>
+    <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Age</th>
+    <th>View</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    </tr>
+</thead>
+<tbody>
+    {% for classmate in object_list %}
+    <tr>
+    <td>{{ classmate.firstname }}</td>
+    <td>{{ classmate.lastname }}</td>
+    <td>{{ classmate.age }}</td>
+    <td><a href="{% url "classmate_view" classmate.id %}">view</a></td>
+    <td><a href="{% url "classmate_edit" classmate.id %}">edit</a></td>
+    <td><a href="{% url "classmate_delete" classmate.id %}">delete</a></td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+<a href="{% url "classmate_new" %}">New</a>
+

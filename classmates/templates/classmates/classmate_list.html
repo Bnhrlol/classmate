@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classmates</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, black, blue);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: white;
+            margin-top: 20px; /* Adjusted margin */
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #1E90FF;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        a {
+            text-decoration: none;
+            color: #1E90FF;
+            margin: 10px 0; /* Adjusted margin */
+        }
+
+        a:hover {
+            color: #004080;
+        }
+
+        a:active {
+            color: #001a33;
+        }
+
+        a:visited {
+            color: #1E90FF;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="font-family: cursive;
+    font-size: xxx-large;">Classmates</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Address</th>
+                <th>View</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for classmate in object_list %}
+            <tr>
+                <td>{{ classmate.firstname }}</td>
+                <td>{{ classmate.lastname }}</td>
+                <td>{{ classmate.age }}</td>
+                <td>{{ classmate.get_gender_display }}</td> {# Use get_gender_display to get the human-readable value of the gender field #}
+                <td>{{ classmate.address }}</td>
+                <td><a href="{% url "classmate_view" classmate.id %}">view</a></td>
+                <td><a href="{% url "classmate_edit" classmate.id %}">edit</a></td>
+                <td><a href="{% url "classmate_delete" classmate.id %}">delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{% url "classmate_new" %}" style="font-size: large;">+New</a>
+
+</body>
+</html>
+

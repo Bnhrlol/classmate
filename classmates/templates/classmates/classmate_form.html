@@ -1,0 +1,15 @@
+<h1>Classmate Edit</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.firstname.label_tag }} {{ form.firstname }}
+    <br>
+    {{ form.lastname.label_tag }} {{ form.lastname }}
+    <br>
+    {{ form.age.label_tag }} {{ form.age }}
+    <br>
+    {{ form.gender.label_tag }} {{ form.gender }} {# Include gender field #}
+    <br>
+    {{ form.address.label_tag }} {{ form.address }} {# Include address field #}
+    <br>
+    <input type="submit" value="Submit" />
+</form>

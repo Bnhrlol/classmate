@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: linear-gradient(to bottom, white, blue);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        .details-box {
+            border: 2px solid #333;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 400px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 1.5em;
+        }
+
+        p {
+            color: #555;
+            font-size: 1.2em;
+        }
+    </style>
+    <title>Classmate Details</title>
+</head>
+<body>
+
+    <div class="details-box">
+        <h1>Classmate Details</h1>
+        <h2>Name: {{ object.firstname }} {{ object.lastname }}</h2>
+        <p>Age: {{ object.age }}</p>
+        <p>Gender: {{ object.get_gender_display }}</p>
+        <p>Address: {{ object.address }}</p>
+    </div>
+
+</body>
+</html>
